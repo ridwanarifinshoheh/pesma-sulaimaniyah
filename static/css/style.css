@@ -58,7 +58,9 @@ body {
 .highlight {
   background: linear-gradient(90deg, #34d399, #fbbf24);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
+  display: inline-block;
 }
 
 .subtitle {

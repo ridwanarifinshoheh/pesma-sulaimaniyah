@@ -1,5 +1,11 @@
 <h2>Data Santri</h2>
 
 {% for s in data %}
-  <p>{{ s.nama }} - {{ s.email }} - {{ s.no_hp }}</p>
+  <p>
+    {{ s.nama }} - {{ s.email }} - {{ s.no_hp }}
+    <br>
+    <a href="{{ url_for('static', filename='uploads/' + s.dokumen) }}" target="_blank">
+      Lihat Dokumen
+    </a>
+  </p>
 {% endfor %}
