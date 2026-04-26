@@ -1,37 +1,61 @@
+# =========================
+# IMPORT
+# =========================
 import os
 import uuid
+import requests
+
 from flask import Flask, render_template, request, redirect, session
 from werkzeug.utils import secure_filename
 from models import db, Santri
 
+
+# =========================
+# INIT APP
+# =========================
 app = Flask(__name__)
 
-# CONFIG
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+# Config utama
 app.config['SECRET_KEY'] = 'supersecretkey123'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
+# File yang diizinkan
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'pdf'}
 
+# Init database
 db.init_app(app)
 
-# INIT DATABASE
+# Buat database jika belum ada
 with app.app_context():
     db.create_all()
 
-# FUNCTION CEK FILE
+
+# =========================
+# HELPER FUNCTION
+# =========================
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# HOME
+
+# =========================
+# ROUTES
+# =========================
+
+# 🏠 HOME
 @app.route("/")
 def home():
     return render_template("index.html")
 
-# DAFTAR + UPLOAD FILE
+
+# 📋 DAFTAR SANTRI + UPLOAD + GOOGLE SHEETS
 @app.route("/daftar", methods=["GET", "POST"])
 def daftar():
     if request.method == "POST":
+
+        # =========================
+        # 1. HANDLE UPLOAD FILE
+        # =========================
         file = request.files.get("dokumen")
         filename = None
 
@@ -42,6 +66,9 @@ def daftar():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             file.save(filepath)
 
+        # =========================
+        # 2. SIMPAN KE DATABASE
+        # =========================
         data = Santri(
             nama=request.form["nama"],
             email=request.form["email"],
@@ -52,11 +79,30 @@ def daftar():
         db.session.add(data)
         db.session.commit()
 
+        # =========================
+        # 3. KIRIM KE GOOGLE SHEETS
+        # =========================
+        try:
+            url = "PASTE_URL_APPS_SCRIPT_DISINI"
+
+            data_sheet = {
+                "nama": request.form["nama"],
+                "email": request.form["email"],
+                "no_hp": request.form["no_hp"],
+                "dokumen": filename
+            }
+
+            requests.post(url, json=data_sheet)
+
+        except Exception as e:
+            print("Gagal kirim ke Google Sheets:", e)
+
         return redirect("/")
 
     return render_template("daftar.html")
 
-# LOGIN
+
+# 🔐 LOGIN ADMIN
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -66,7 +112,8 @@ def login():
 
     return render_template("login.html")
 
-# ADMIN
+
+# 📊 DASHBOARD ADMIN
 @app.route("/admin")
 def admin():
     if not session.get("admin"):
@@ -75,11 +122,16 @@ def admin():
     data = Santri.query.all()
     return render_template("admin.html", data=data)
 
-# LOGOUT
+
+# 🚪 LOGOUT
 @app.route("/logout")
 def logout():
     session.clear()
     return redirect("/")
 
+
+# =========================
+# RUN APP
+# =========================
 if __name__ == "__main__":
     app.run(debug=True)
