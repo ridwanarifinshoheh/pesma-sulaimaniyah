@@ -83,7 +83,7 @@ def daftar():
         # 3. KIRIM KE GOOGLE SHEETS
         # =========================
         try:
-            url = "https://script.google.com/macros/s/AKfycbwJYBopzQ0Vk4xJoxDWNmJkaKiJ_FQifnGOokBHF_U/dev"
+            url = "https://script.google.com/macros/s/AKfycbwJYBopzQ0Vk4xJoxDWNmJkaKiJ_FQifnGOokBHF_U/exec"
 
             data_sheet = {
                 "nama": request.form["nama"],
@@ -92,10 +92,14 @@ def daftar():
                 "dokumen": filename
             }
 
-            requests.post(url, json=data_sheet)
+            response = requests.post(url, json=data_sheet, timeout=5)
+
+            if response.status_code != 200:
+                print("Gagal kirim:", response.text)
 
         except Exception as e:
-            print("Gagal kirim ke Google Sheets:", e)
+            print("ERROR GOOGLE SHEETS:", e)
+            print(data_sheet)
 
         return redirect("/")
 
