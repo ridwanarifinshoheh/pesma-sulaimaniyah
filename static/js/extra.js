@@ -1,17 +1,22 @@
 // Preloader
 window.addEventListener("load", () => {
-  document.getElementById("preloader").style.display = "none";
+  const preloader = document.getElementById("preloader");
+  if (preloader) preloader.style.display = "none";
 });
 
 // Dark mode toggle
 const toggle = document.getElementById("toggleTheme");
 
-toggle.onclick = () => {
-  document.body.classList.toggle("light-mode");
-};
+if (toggle) {
+  toggle.onclick = () => {
+    document.body.classList.toggle("light-mode");
+  };
+}
 
-// Parallax effect
+// Parallax
 window.addEventListener("scroll", () => {
-  document.querySelector(".hero").style.backgroundPositionY =
-    window.scrollY * 0.5 + "px";
+  const hero = document.querySelector(".hero");
+  if (hero) {
+    hero.style.backgroundPositionY = window.scrollY * 0.5 + "px";
+  }
 });
