@@ -83,7 +83,7 @@ def daftar():
         # 3. KIRIM KE GOOGLE SHEETS
         # =========================
         try:
-            url = "PASTE_URL_APPS_SCRIPT_DISINI"
+            url = "https://script.google.com/macros/s/AKfycbwJYBopzQ0Vk4xJoxDWNmJkaKiJ_FQifnGOokBHF_U/dev"
 
             data_sheet = {
                 "nama": request.form["nama"],
