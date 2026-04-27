@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program Pesantren</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="container nav-content">
+    <h2 class="logo">Pesantren</h2>
+
+    <nav id="navMenu">
+      <a href="/">Home</a>
+      <a href="/program">Program</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+  </div>
+</header>
+
+
+<!-- ================= HEADER ================= -->
+<section class="page-header">
+  <div class="container">
+    <h1>Program Pesantren</h1>
+    <p>Kurikulum terstruktur untuk membentuk generasi Qurani</p>
+  </div>
+</section>
+
+
+<!-- ================= PROGRAM SECTION ================= -->
+<section class="program-page">
+  <div class="container">
+
+    <!-- HARIAN -->
+    <h2 class="section-title">Program Harian</h2>
+    <div class="program-grid">
+      <div class="card">
+        <h3>📖 Tahfidz</h3>
+        <p>Setoran hafalan setiap hari</p>
+      </div>
+      <div class="card">
+        <h3>🕌 Shalat Jamaah</h3>
+        <p>Disiplin ibadah berjamaah</p>
+      </div>
+      <div class="card">
+        <h3>📚 Kajian Kitab</h3>
+        <p>Pembelajaran kitab klasik</p>
+      </div>
+    </div>
+
+    <!-- MINGGUAN -->
+    <h2 class="section-title">Program Mingguan</h2>
+    <div class="program-grid">
+      <div class="card">
+        <h3>🎤 Muhadhoroh</h3>
+        <p>Latihan public speaking</p>
+      </div>
+      <div class="card">
+        <h3>⚽ Olahraga</h3>
+        <p>Kegiatan fisik & kesehatan</p>
+      </div>
+      <div class="card">
+        <h3>📖 Evaluasi Hafalan</h3>
+        <p>Monitoring progres santri</p>
+      </div>
+    </div>
+
+    <!-- BULANAN -->
+    <h2 class="section-title">Program Bulanan</h2>
+    <div class="program-grid">
+      <div class="card">
+        <h3>🧠 Ujian Bulanan</h3>
+        <p>Evaluasi pembelajaran</p>
+      </div>
+      <div class="card">
+        <h3>📢 Kajian Umum</h3>
+        <p>Penguatan wawasan keislaman</p>
+      </div>
+    </div>
+
+    <!-- SEMESTER -->
+    <h2 class="section-title">Program Semesteran</h2>
+    <div class="program-grid">
+      <div class="card">
+        <h3>📝 Ujian Semester</h3>
+        <p>Evaluasi komprehensif</p>
+      </div>
+      <div class="card">
+        <h3>🏆 Penilaian Santri</h3>
+        <p>Penentuan prestasi</p>
+      </div>
+    </div>
+
+    <!-- TAHUNAN -->
+    <h2 class="section-title">Program Tahunan</h2>
+    <div class="program-grid">
+      <div class="card">
+        <h3>🎓 Wisuda Tahfidz</h3>
+        <p>Apresiasi pencapaian santri</p>
+      </div>
+      <div class="card">
+        <h3>🌙 Ramadhan Camp</h3>
+        <p>Program intensif Ramadhan</p>
+      </div>
+      <div class="card">
+        <h3>🏕️ Dauroh</h3>
+        <p>Pelatihan & penguatan karakter</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p>© 2026 Pesantren Modern. All Rights Reserved.</p>
+</footer>
+
+
+<script src="{{ url_for('static', filename='js/extra.js') }}"></script>
+
+</body>
+</html>
