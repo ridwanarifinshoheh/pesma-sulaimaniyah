@@ -14,12 +14,23 @@ body {
 /* Navbar */
 .navbar {
   position: fixed;
-  width: 100%;
-  padding: 15px 50px;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 90%;
+  max-width: 1200px;
+
   display: flex;
+  align-items: center;         /* ⬅️ ini bikin sejajar vertikal */
   justify-content: space-between;
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.05);
+
+  padding: 15px 30px;
+  border-radius: 50px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+
   z-index: 1000;
 }
 
@@ -31,6 +42,29 @@ body {
 }
 
 .navbar a:hover {
+  color: #34d399;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* NAV MENU */
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;   /* ⬅️ jarak antar menu */
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover {
   color: #34d399;
 }
 
@@ -331,4 +365,18 @@ a:hover::after {
 .card:hover {
   transform: translateY(-10px) scale(1.03);
   background: rgba(255,255,255,0.1);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .program-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* HP */
+@media (max-width: 600px) {
+  .program-grid {
+    grid-template-columns: 1fr;
+  }
 }
