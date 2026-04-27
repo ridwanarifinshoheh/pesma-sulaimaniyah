@@ -25,21 +25,33 @@
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-inner">
-    <h1>
-      Membangun <span class="highlight">Generasi Qurani</span><br>
-      di Era Digital
-    </h1>
 
-    <p class="subtitle">
-      Pesantren modern yang menggabungkan Al-Qur’an, ilmu, dan teknologi.
-    </p>
+  <!-- SLIDER -->
+  <div class="slider">
+    <div class="slides">
 
-    <div class="cta-group">
-      <a href="/daftar" class="btn primary">Daftar Sekarang</a>
-      <a href="#program" class="btn secondary">Lihat Program</a>
+      <div class="slide active">
+        <img src="{{ url_for('static', filename='img/slide1.jpg') }}">
+      </div>
+
+      <div class="slide">
+        <img src="{{ url_for('static', filename='img/slide2.jpg') }}">
+      </div>
+
+      <div class="slide">
+        <img src="{{ url_for('static', filename='img/slide3.jpg') }}">
+      </div>
+
     </div>
   </div>
+
+  <!-- OVERLAY TEXT -->
+  <div class="hero-content">
+    <h1>Membangun Generasi Qurani</h1>
+    <p>Pesantren modern berbasis Al-Qur’an & teknologi</p>
+    <a href="/daftar" class="btn primary">Daftar Sekarang</a>
+  </div>
+
 </section>
 
 <!-- Program -->
@@ -82,6 +94,8 @@
 </div>
 
 <button id="toggleTheme">🌙</button>
+
+<script src="{{ url_for('static', filename='js/extra.js') }}"></script>
 
 </body>
 </html>

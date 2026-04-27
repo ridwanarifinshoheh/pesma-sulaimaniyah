@@ -22,3 +22,17 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".fade-up").forEach(el => {
   observer.observe(el);
 });
+
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function showSlide() {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+
+  index++;
+  if (index >= slides.length) index = 0;
+}
+
+// auto slide tiap 4 detik
+setInterval(showSlide, 4000);
