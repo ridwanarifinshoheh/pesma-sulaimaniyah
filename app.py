@@ -61,6 +61,10 @@ def home():
 def kontak():
     return render_template("contact.html")
 
+@app.route("/program")
+def program():
+    return render_template("program.html")
+
 # 📋 DAFTAR SANTRI + UPLOAD + GOOGLE SHEETS
 @app.route("/daftar", methods=["GET", "POST"])
 def daftar():
