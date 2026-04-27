@@ -646,3 +646,97 @@ html {
   font-size: 26px;
   color: #22c55e;
 }
+
+/* ================= THEME TOKENS ================= */
+:root {
+  --bg: #0b1f2a;
+  --surface: rgba(255,255,255,0.06);
+  --text: #e6f1f5;
+  --muted: #9fb3bd;
+  --primary: #22c55e;   /* green */
+  --accent: #3b82f6;    /* blue */
+  --border: rgba(255,255,255,0.12);
+}
+
+/* LIGHT MODE */
+body.light {
+  --bg: #f6f9fc;
+  --surface: rgba(0,0,0,0.04);
+  --text: #0f172a;
+  --muted: #64748b;
+  --primary: #16a34a;
+  --accent: #2563eb;
+  --border: rgba(0,0,0,0.08);
+}
+
+/* BASE */
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* NAVBAR */
+.navbar {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+/* CARD */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+/* TEXT */
+nav a {
+  color: var(--text);
+}
+
+/* HERO TEXT */
+.hero p {
+  color: var(--muted);
+}
+
+/* BUTTON */
+.btn {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+/* ================= TOGGLE STYLE ================= */
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.theme-toggle .icon {
+  font-size: 18px;
+  transition: transform 0.4s ease;
+}
+
+/* animasi rotasi */
+body.light .theme-toggle .icon {
+  transform: rotate(180deg);
+}
+
+* {
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+}

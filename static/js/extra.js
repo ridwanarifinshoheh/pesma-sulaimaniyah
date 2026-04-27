@@ -47,3 +47,37 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const toggle = document.getElementById("themeToggle");
+  const icon = toggle.querySelector(".icon");
+  const body = document.body;
+
+  // 1. Cek preferensi user
+  const savedTheme = localStorage.getItem("theme");
+
+  // 2. Auto detect OS (Apple-like)
+  const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+
+  if (savedTheme === "light" || (!savedTheme && prefersLight)) {
+    body.classList.add("light");
+    icon.textContent = "☀️";
+  } else {
+    icon.textContent = "🌙";
+  }
+
+  // 3. Toggle click
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("light");
+
+    if (body.classList.contains("light")) {
+      localStorage.setItem("theme", "light");
+      icon.textContent = "☀️";
+    } else {
+      localStorage.setItem("theme", "dark");
+      icon.textContent = "🌙";
+    }
+  });
+
+});
