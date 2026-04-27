@@ -108,14 +108,6 @@
         padding: 30px 20px;
       }
     }
-
-    /* Navbar override untuk halaman login */
-    .navbar {
-      background: rgba(255,255,255,0.1) !important;
-      backdrop-filter: blur(20px) !important;
-      border: 1px solid rgba(255,255,255,0.1) !important;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
-    }
   </style>
 </head>
 
@@ -126,6 +118,9 @@
       <h2 class="logo">Pesantren</h2>
 
       <nav id="navMenu">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+  <span class="icon">🌙</span>
+</button>
         <a href="/">Home</a>
         <a href="/daftar">Daftar</a>
         <a href="/contact">Kontak</a>
