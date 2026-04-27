@@ -13,7 +13,7 @@
   <style>
     .login-container {
       max-width: 400px;
-      margin: 150px auto;
+      margin: 200px auto;
       padding: 40px;
       background: rgba(255,255,255,0.08);
       backdrop-filter: blur(10px);
@@ -93,10 +93,32 @@
       margin-bottom: 20px;
       font-size: 14px;
     }
+
+    @media (max-width: 768px) {
+      .login-container {
+        margin: 150px auto 50px;
+        padding: 30px 20px;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <h2 class="logo">Pesantren</h2>
+
+      <nav id="navMenu">
+        <a href="/">Home</a>
+        <a href="/daftar">Daftar</a>
+        <a href="/contact">Kontak</a>
+      </nav>
+
+      <div class="menu-toggle" id="menuToggle">☰</div>
+    </div>
+  </header>
+
   <!-- ================= FORM ================= -->
   <div class="container">
     <div class="login-container">
