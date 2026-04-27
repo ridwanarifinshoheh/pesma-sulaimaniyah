@@ -23,12 +23,22 @@ app.config['UPLOAD_FOLDER'] = 'static/uploads'
 # File yang diizinkan
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'pdf'}
 
+from sqlalchemy import text
+
 # Init database
 db.init_app(app)
 
-# Buat database jika belum ada
+# Buat database jika belum ada dan pastikan kolom dokumen ada
 with app.app_context():
     db.create_all()
+    try:
+        result = db.session.execute(text("PRAGMA table_info('santri')")).mappings().all()
+        columns = [row['name'] for row in result]
+        if 'dokumen' not in columns:
+            db.session.execute(text("ALTER TABLE santri ADD COLUMN dokumen VARCHAR(200)"))
+            db.session.commit()
+    except Exception:
+        db.session.rollback()
 
 
 # =========================
@@ -47,6 +57,9 @@ def allowed_file(filename):
 def home():
     return render_template("index.html")
 
+@app.route("/contact")
+def kontak():
+    return render_template("contact.html")
 
 # 📋 DAFTAR SANTRI + UPLOAD + GOOGLE SHEETS
 @app.route("/daftar", methods=["GET", "POST"])
