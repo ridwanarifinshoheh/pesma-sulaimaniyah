@@ -29,9 +29,15 @@ toggleBtn.onclick = () => {
 };
 
 // TOGGLE MENU
-const toggle = document.getElementById("menuToggle");
-const nav = document.getElementById("navMenu");
+document.addEventListener("DOMContentLoaded", function () {
 
-toggle.onclick = () => {
-  nav.classList.toggle("active");
-};
+  const toggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("navMenu");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("active");
+    });
+  }
+
+});
