@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 20px;
@@ -22,7 +22,7 @@ body {
   max-width: 1200px;
 
   display: flex;
-  align-items: center;         /* ⬅️ ini bikin sejajar vertikal */
+  align-items: center;
   justify-content: space-between;
 
   padding: 15px 30px;
@@ -34,42 +34,47 @@ body {
   z-index: 1000;
 }
 
-.navbar a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.navbar a:hover {
-  color: #34d399;
-}
-
+/* LOGO */
 .logo {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
 }
 
-/* NAV MENU */
+/* MENU */
 .navbar nav {
   display: flex;
   align-items: center;
-  gap: 30px;   /* ⬅️ jarak antar menu */
+  gap: 30px;
 }
 
 .navbar nav a {
   text-decoration: none;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
+  position: relative;
+}
+
+/* HOVER UNDERLINE */
+.navbar nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: #34d399;
   transition: 0.3s;
 }
 
-.navbar nav a:hover {
-  color: #34d399;
+.navbar nav a:hover::after {
+  width: 100%;
 }
 
-.navbar {
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+/* TOGGLE BUTTON */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 /* Hero */
@@ -383,4 +388,49 @@ a:hover::after {
   .program-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar nav {
+    position: absolute;
+    top: 80px;
+    right: 0;
+
+    width: 200px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    background: rgba(0,0,0,0.9);
+    padding: 20px;
+    border-radius: 15px;
+
+    display: none;
+  }
+
+  .navbar nav.active {
+    display: flex;
+  }
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 700px;
+  z-index: 2;
 }
