@@ -13,20 +13,26 @@ if (toggle) {
   };
 }
 
-// Parallax
-window.addEventListener("scroll", () => {
+// Parallax with throttling for better performance
+function throttle(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  }
+}
+
+window.addEventListener("scroll", throttle(() => {
   const hero = document.querySelector(".hero");
   if (hero) {
     hero.style.backgroundPositionY = window.scrollY * 0.5 + "px";
   }
-});
-
-const toggleBtn = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
-
-toggleBtn.onclick = () => {
-  navMenu.classList.toggle("active");
-};
+}, 16)); // ~60fps
 
 // TOGGLE MENU
 document.addEventListener("DOMContentLoaded", function () {
