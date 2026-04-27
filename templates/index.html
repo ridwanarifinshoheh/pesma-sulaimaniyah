@@ -11,77 +11,70 @@
   <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
 
-<!-- Navbar -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
-  <h2 class="logo">Pesantren</h2>
+  <div class="container nav-content">
+    <h2 class="logo">Pesantren</h2>
 
-  <!-- MENU -->
-  <nav id="navMenu">
-    <a href="#">Home</a>
-    <a href="#program">Program</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
+    <nav id="navMenu">
+      <a href="#">Home</a>
+      <a href="#program">Program</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
 
-  <!-- TOGGLE BUTTON -->
-  <div class="menu-toggle" id="menuToggle">
-    ☰
+    <div class="menu-toggle" id="menuToggle">☰</div>
   </div>
 </header>
 
-<!-- Hero -->
+
+<!-- ================= HERO ================= -->
 <section class="hero">
 
-  <!-- SLIDER -->
   <div class="slider">
-    <div class="slides">
-
-      <div class="slide active">
-        <img src="{{ url_for('static', filename='img/slide1.jpg') }}">
-      </div>
-
-      <div class="slide">
-        <img src="{{ url_for('static', filename='img/slide2.jpg') }}">
-      </div>
-
-      <div class="slide">
-        <img src="{{ url_for('static', filename='img/slide3.jpg') }}">
-      </div>
-
+    <div class="slide active">
+      <img src="{{ url_for('static', filename='img/slide1.jpg') }}">
+    </div>
+    <div class="slide">
+      <img src="{{ url_for('static', filename='img/slide2.jpg') }}">
+    </div>
+    <div class="slide">
+      <img src="{{ url_for('static', filename='img/slide3.jpg') }}">
     </div>
   </div>
 
-  <!-- OVERLAY TEXT -->
   <div class="hero-content">
     <h1>Membangun Generasi Qurani</h1>
-    <p>Pesantren modern berbasis Al-Qur’an & teknologi</p>
+    <p>Pendidikan Islam modern berbasis Al-Qur’an dan teknologi</p>
     <a href="/daftar" class="btn primary">Daftar Sekarang</a>
   </div>
 
 </section>
 
-<!-- Program -->
-<section class="program">
+
+<!-- ================= PROGRAM ================= -->
+<section class="program" id="program">
   <div class="container">
 
     <h2 class="section-title">Program Unggulan</h2>
 
     <div class="program-grid">
 
-      <div class="card fade-up">
-        <h3>Tahfidz Qur'an</h3>
-        <p>Metode intensif & terstruktur</p>
+      <div class="card">
+        <h3>📖 Tahfidz Qur'an</h3>
+        <p>Program hafalan intensif dengan metode modern</p>
       </div>
 
-      <div class="card fade-up">
-        <h3>Kitab Kuning</h3>
-        <p>Pembelajaran klasik bersanad</p>
+      <div class="card">
+        <h3>📚 Kitab Kuning</h3>
+        <p>Pembelajaran klasik berbasis sanad</p>
       </div>
 
-      <div class="card fade-up">
-        <h3>Teknologi</h3>
-        <p>Santri siap era digital</p>
+      <div class="card">
+        <h3>💻 Teknologi</h3>
+        <p>Santri siap menghadapi era digital</p>
       </div>
 
     </div>
@@ -89,25 +82,24 @@
   </div>
 </section>
 
-<!-- CTA -->
+
+<!-- ================= CTA ================= -->
 <section class="cta">
-  <h2>Siap Menjadi Santri?</h2>
-  <a href="#" class="btn">Daftar Sekarang</a>
+  <div class="container">
+    <h2>Siap Bergabung Bersama Kami?</h2>
+    <a href="/daftar" class="btn primary">Daftar Sekarang</a>
+  </div>
 </section>
 
-<!-- Footer -->
+
+<!-- ================= FOOTER ================= -->
 <footer>
-  <p>© 2026 Pesantren Modern. All Rights Reserved.</p>
+  <p>© 2026 Pesantren Mahasiswa Sulaimaniyah. All Rights Reserved.</p>
 </footer>
 
+
+<!-- JS -->
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
-<div id="preloader">
-  <div class="loader"></div>
-</div>
-
-<button id="toggleTheme">🌙</button>
-
 <script src="{{ url_for('static', filename='js/extra.js') }}"></script>
 
 </body>

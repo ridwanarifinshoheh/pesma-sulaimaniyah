@@ -20,3 +20,18 @@ window.addEventListener("scroll", () => {
     hero.style.backgroundPositionY = window.scrollY * 0.5 + "px";
   }
 });
+
+const toggleBtn = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+toggleBtn.onclick = () => {
+  navMenu.classList.toggle("active");
+};
+
+// TOGGLE MENU
+const toggle = document.getElementById("menuToggle");
+const nav = document.getElementById("navMenu");
+
+toggle.onclick = () => {
+  nav.classList.toggle("active");
+};
