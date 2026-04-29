@@ -740,3 +740,171 @@ body.light .theme-toggle .icon {
 * {
   transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
+
+/* NAV WRAPPER */
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* GROUP KANAN */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* jarak antar menu + toggle */
+}
+
+/* MENU */
+.nav-right nav {
+  display: flex;
+  gap: 25px;
+}
+
+/* TOGGLE */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* ICON */
+.theme-toggle .icon {
+  font-size: 16px;
+}
+
+/* MOBILE */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  .nav-right nav {
+    display: none;
+  }
+
+  .nav-right nav.active {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 80px;
+    right: 20px;
+
+    background: var(--bg);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* ================= TEXT SYSTEM ================= */
+
+/* DEFAULT DARK */
+body {
+  color: #e6f1f5;
+}
+
+/* LIGHT MODE */
+body.light {
+  color: #0f172a;
+}
+
+/* ================= HEADING ================= */
+h1, h2, h3 {
+  color: inherit;
+  font-weight: 600;
+}
+
+/* ================= PARAGRAPH ================= */
+p {
+  color: #9fb3bd;
+  line-height: 1.6;
+}
+
+body.light p {
+  color: #64748b;
+}
+
+/* ================= NAVBAR ================= */
+nav a {
+  color: #e6f1f5;
+}
+
+body.light nav a {
+  color: #0f172a;
+}
+
+/* ================= HERO ================= */
+.hero p {
+  color: #9fb3bd;
+}
+
+body.light .hero p {
+  color: #64748b;
+}
+
+/* ================= CARD ================= */
+.card {
+  color: #e6f1f5;
+}
+
+body.light .card {
+  color: #0f172a;
+}
+
+/* ================= FORM ================= */
+input, textarea {
+  color: #e6f1f5;
+}
+
+body.light input,
+body.light textarea {
+  color: #0f172a;
+}
+
+/* placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: #9fb3bd;
+}
+
+body.light input::placeholder,
+body.light textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* accent */
+.section-title {
+  color: #22c55e;
+}
+
+body.light .section-title {
+  color: #16a34a;
+}
+
+/* link hover */
+nav a:hover {
+  color: #22c55e;
+}
+
