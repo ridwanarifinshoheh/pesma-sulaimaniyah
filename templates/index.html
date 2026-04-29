@@ -48,18 +48,47 @@
 <!-- ================= HERO ================= -->
 <section class="hero">
 
+  <!-- SLIDER -->
   <div class="slider">
-    <div class="slide active">
-      <img src="{{ url_for('static', filename='img/slide1.jpg') }}">
+
+    <div class="slides" id="slides">
+
+      <!-- SLIDE 1 -->
+      <div class="slide active">
+        <img src="{{ url_for('static', filename='img/slide1.jpg') }}">
+        <div class="slide-caption">
+          <h2>Tahfidz Al-Qur'an</h2>
+          <p>Membentuk generasi penghafal Qur'an</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="slide">
+        <img src="{{ url_for('static', filename='img/slide2.jpg') }}">
+        <div class="slide-caption">
+          <h2>Pendidikan Modern</h2>
+          <p>Integrasi ilmu agama & teknologi</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="slide">
+        <img src="{{ url_for('static', filename='img/slide3.jpg') }}">
+        <div class="slide-caption">
+          <h2>Lingkungan Islami</h2>
+          <p>Suasana belajar yang kondusif</p>
+        </div>
+      </div>
+
     </div>
-    <div class="slide">
-      <img src="{{ url_for('static', filename='img/slide2.jpg') }}">
-    </div>
-    <div class="slide">
-      <img src="{{ url_for('static', filename='img/slide3.jpg') }}">
-    </div>
+
+    <!-- BUTTON -->
+    <button class="prev" id="prevBtn">❮</button>
+    <button class="next" id="nextBtn">❯</button>
+
   </div>
 
+  <!-- HERO TEXT -->
   <div class="hero-content">
     <h1>Membangun Generasi Qurani</h1>
     <p>Pendidikan Islam modern berbasis Al-Qur’an dan teknologi</p>
