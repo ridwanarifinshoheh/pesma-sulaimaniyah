@@ -1,153 +1,50 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pesantren Modern</title>
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+{% block content %}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-
-<body>
-
-<!-- ================= NAVBAR ================= -->
-  <header class="navbar">
-  <div class="container nav-content">
-
-    <a href="/" class="logo">
-  <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Pesma">
-  <span>Sulaimaniyah Jogja</span>
-    </a>
-
-    <!-- GROUP KANAN -->
-    <div class="nav-right">
-
-      <nav id="navMenu">
-        <a href="/">Home</a>
-        <a href="/program">Program</a>
-        <a href="/contact">Kontak</a>
-        <a href="/admin/login">Admin</a>
-        <a href="/daftar">Daftar</a>
-      </nav>
-
-      <!-- THEME TOGGLE -->
-      <button id="themeToggle" class="theme-toggle">
-        <span class="icon">🌙</span>
-      </button>
-
-      <!-- MOBILE -->
-      <div class="menu-toggle" id="menuToggle">☰</div>
-
-    </div>
-
-  </div>
-</header>
-
-
-<!-- ================= HERO ================= -->
 <section class="hero">
 
-  <!-- SLIDER -->
   <div class="slider">
-
     <div class="slides" id="slides">
 
-      <!-- SLIDE 1 -->
-      <div class="slide active">
+      <div class="slide">
         <img src="{{ url_for('static', filename='img/slide1.jpg') }}">
-        <div class="slide-caption">
-          <h2>Tahfidz Al-Qur'an</h2>
-          <p>Membentuk generasi penghafal Qur'an</p>
-        </div>
+        <div class="overlay"></div>
       </div>
 
-      <!-- SLIDE 2 -->
       <div class="slide">
         <img src="{{ url_for('static', filename='img/slide2.jpg') }}">
-        <div class="slide-caption">
-          <h2>Pendidikan Modern</h2>
-          <p>Integrasi ilmu agama & teknologi</p>
-        </div>
+        <div class="overlay"></div>
       </div>
 
-      <!-- SLIDE 3 -->
       <div class="slide">
         <img src="{{ url_for('static', filename='img/slide3.jpg') }}">
-        <div class="slide-caption">
-          <h2>Lingkungan Islami</h2>
-          <p>Suasana belajar yang kondusif</p>
-        </div>
+        <div class="overlay"></div>
       </div>
 
     </div>
-
-    <!-- BUTTON -->
-    <button class="prev" id="prevBtn">❮</button>
-    <button class="next" id="nextBtn">❯</button>
-
   </div>
 
-  <!-- HERO TEXT -->
   <div class="hero-content">
     <h1>Membangun Generasi Qurani</h1>
-    <p>Pendidikan Islam modern berbasis Al-Qur’an dan teknologi</p>
-    <a href="/daftar" class="btn primary">Daftar Sekarang</a>
+    <p>Pendidikan Islam modern berbasis teknologi</p>
+    <a href="/daftar" class="btn">Daftar</a>
   </div>
 
 </section>
 
-
-<!-- ================= PROGRAM ================= -->
-<section class="program" id="program">
+<section class="program">
   <div class="container">
+    <h2 class="section-title">Program</h2>
 
-    <h2 class="section-title">Program Unggulan</h2>
-
-    <div class="program-grid">
-
-      <div class="card">
-        <h3>📖 Tahfidz Qur'an</h3>
-        <p>Program hafalan intensif dengan metode modern</p>
-      </div>
-
-      <div class="card">
-        <h3>📚 Kitab Kuning</h3>
-        <p>Pembelajaran klasik berbasis sanad</p>
-      </div>
-
-      <div class="card">
-        <h3>💻 Teknologi</h3>
-        <p>Santri siap menghadapi era digital</p>
-      </div>
-
+    <div class="grid">
+      <div class="card"><h3>Tahfidz</h3></div>
+      <div class="card"><h3>Kitab</h3></div>
+      <div class="card"><h3>Teknologi</h3></div>
     </div>
 
   </div>
 </section>
 
-
-<!-- ================= CTA ================= -->
-<section class="cta">
-  <div class="container">
-    <h2>Siap Bergabung Bersama Kami?</h2>
-    <a href="/daftar" class="btn primary">Daftar Sekarang</a>
-  </div>
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-<footer>
-  <p>© 2026 Pesantren Mahasiswa Sulaimaniyah. All Rights Reserved.</p>
-</footer>
-
-
-<!-- JS -->
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-<script src="{{ url_for('static', filename='js/extra.js') }}"></script>
-
-</body>
-</html>
+{% endblock %}
