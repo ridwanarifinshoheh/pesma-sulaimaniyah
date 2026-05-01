@@ -1,16 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   const slides = document.querySelectorAll(".slide");
-  let index = 0;
+  let currentIndex = 0;
+  let autoPlayInterval;
 
-  function showSlide() {
-    slides.forEach(s => s.classList.remove("active"));
-    slides[index].classList.add("active");
+  const setActiveSlide = (index) => {
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle("active", idx === index);
+    });
+    currentIndex = index;
+  };
 
-    index = (index + 1) % slides.length;
+  const nextSlide = () => {
+    setActiveSlide((currentIndex + 1) % slides.length);
+  };
+
+  const startAutoPlay = () => {
+    autoPlayInterval = setInterval(nextSlide, 5000);
+  };
+
+  if (slides.length) {
+    setActiveSlide(0);
+    startAutoPlay();
   }
-
-  showSlide();
-  setInterval(showSlide, 4000);
-
 });
